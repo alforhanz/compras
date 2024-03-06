@@ -29,7 +29,7 @@ function registrarUsuario() {
         // Envía los datos al archivo PHP usando AJAX
         $.ajax({
             type: 'POST',
-            url: '../../app/models/UsuarioModel.php',
+            url: '../../app/models/ConexionModel.php',
             data: formData,
             dataType: 'json',
             encode: true
@@ -43,7 +43,7 @@ function registrarUsuario() {
                     icon: "success",
                     title: "Registro Exitoso",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1800
                   });            
             // Redirigir al usuario al índice
             window.location.href = '../../index.html'; // Cambia 'index.html' a la ruta correcta de tu página de inicio

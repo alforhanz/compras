@@ -1,6 +1,6 @@
 <?php
-// Clase UsuarioModel
-class UsuarioModel {
+// Clase ConexionModel
+class ConexionModel {
     private $conn;
 
     // Constructor para establecer la conexión
@@ -45,8 +45,8 @@ public function insertarUsuario($nombre, $apellido, $usuario, $email, $contrase�
     }
 }   
 }
-// Incluye la definición de la clase UsuarioModel
-require_once("UsuarioModel.php");
+// Incluye la definición de la clase ConexionModel
+require_once("ConexionModel.php");
 // Verificar si se recibieron datos POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contraseña = $_POST['clave'];
     $fechaCreacion = date('Y-m-d H:i:s'); // Obtener la fecha y hora actual
 
-    // Crear una instancia de la clase UsuarioModel
-    $usuarioModel = new UsuarioModel();
+    // Crear una instancia de la clase ConexionModel
+    $ConexionModel = new ConexionModel();
 
     // Insertar un nuevo usuario en la base de datos
-    $resultado = $usuarioModel->insertarUsuario($nombre, $apellido, $usuario, $email, $contraseña, $fechaCreacion);
+    $resultado = $ConexionModel->insertarUsuario($nombre, $apellido, $usuario, $email, $contraseña, $fechaCreacion);
 
     // Crear una respuesta JSON
     $respuesta = array();
