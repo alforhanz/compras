@@ -29,7 +29,7 @@ function registrarUsuario() {
         // Envía los datos al archivo PHP usando AJAX
         $.ajax({
             type: 'POST',
-            url: '../../app/models/ConexionModel.php',
+            url: '../../app/models/UsuarioModel.php',
             data: formData,
             dataType: 'json',
             encode: true
@@ -43,13 +43,13 @@ function registrarUsuario() {
                     icon: "success",
                     title: "Registro Exitoso",
                     showConfirmButton: false,
-                    timer: 1800
+                    timer: 1500
                   });            
             // Redirigir al usuario al índice
             window.location.href = '../../index.html'; // Cambia 'index.html' a la ruta correcta de tu página de inicio
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
-            console.error('Error en la solicitud AJAX..', textStatus, errorThrown);
+            console.error('Error en la solicitud AJAX xuxa:', textStatus, errorThrown);
         });
     });
 }

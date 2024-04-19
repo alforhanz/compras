@@ -10,29 +10,42 @@
      <link rel="stylesheet" href="../../public/css/myStyle.css">
     <title>Login</title>
 </head>
-<body>   
+<body id="login">   
         <div class="login-box">
             <h2>Login</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>Username</label>
+                    <input id="username" type="text" name="" required="">
+                    <label id="label-login">Username</label>
                 </div>
                 <div class="user-box">
-                    <input type="Password" name="" required="">
-                    <label>Password</label>
+                    <!-- <i class="material-icons prefix">lock</i> -->
+                    <input id="password" type="Password" name="" required="" />
+                    <span>
+                        <i id="Mostrar" class="material-icons" style="position: absolute;right: 10px;top: 0;">visibility</i>
+                      </span>
+                    <label id="label-login">Password</label>
                 </div>
-                <a href="#" onclick="validaUsuarios()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    submit
-                </a>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6 login-text">
+                      <label>
+                        <input type="checkbox" name="remember-me" id="remember-me" />
+                        <span>Recordar</span>
+                      </label>
+                      <!-- <a href="../../index.html" class="login-text"> -->
+                        <a href="#" class="login-text" onclick="login()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        submit
+                    </a>
+                    </div>                    
+                  </div>                
             </form>
         </div>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../../public/js/login.js"></script>
+    <script type="text/JavaScript" src="../../public/js/login.js"></script>
 </body>
 </html>

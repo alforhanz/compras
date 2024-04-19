@@ -17,18 +17,18 @@ h1 {
     color: #28a745;
     padding-top: 200px;
 }
- .login-box{
+.login-box {
     position: absolute;
     top: 50%;
-    left:50%;
-    width: 400px;    
+    left: 50%;
+    width: 26%;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.5);
-    box-sizing:border-box;
+    box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-} 
+}
 .login-box h2{
     margin: 0, 0, 30px;
     padding: 0;
@@ -41,6 +41,7 @@ h1 {
 }
 .login-box .user-box input{
     width: 100%;
+    height: 2rem !important;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
@@ -80,6 +81,7 @@ h1 {
     transition: .5s;
     margin-top: 40px;
     letter-spacing: 4px;    
+    width: 100%;
 }
 
 .login-box a:hover{
@@ -165,14 +167,46 @@ display: block;
         bottom: 100%;
     }
 }   
-/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////REGLAS GENERALES PARA LAS VISTAS////////////////////////////////////////////////////////////////////*/
 nav{
     background-color: #206d48 !important;
-}
-.card .card-image img{
-    height: 788px !important;
 }
 
 nav .brand-logo {
     margin-left: 17px;
  }
+
+ /* Small only */
+@media screen and (max-width: 39.9375em) {}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+    .card .card-image img{
+        height: 788px !important;
+    }
+
+    #label-login {
+        position: absolute;
+        top: -36px;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #28a745;
+        pointer-events: none;
+        transition: .5s;
+    }  
+    .login-text{
+        text-align: center;
+    }
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {
+    
+}
