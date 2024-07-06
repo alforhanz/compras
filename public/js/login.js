@@ -6,7 +6,7 @@ let password = document.getElementById('password');
 let Mostrar = document.getElementById('Mostrar');
 let click = false;
 
-//muestra el password
+///muestra el password
 Mostrar.addEventListener('click', (e) => {
   if (!click) {
     password.type = 'text'
@@ -94,70 +94,67 @@ function login() {
         text: "Por favor ingrese la contraseña",
         confirmButtonColor: "#000",
       });
-        }else{
-            window.location = "../../index.html";
-      } 
-    // } else {
-    //   //DATA INFORMATION(USER AND PASS)
-    //   const data = { username: usuario, password: pass };
-    //   //console.log(data);
-    //   fetch(env.API_URL + "index.php/auth/login", {
-    //     //TRAE MODULOS PARA EL USUARIO
-    //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //     //mode: "cors",  // no-cors, *cors, same-origin
-    //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //     //credentials: 'same-origin', // include, *same-origin, omit
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //       //  "Access-Control-Allow-Origin": "*",
-    //     },body: JSON.stringify(data),})
-    //         .then((response) => response.json())
-    //         .then((result) => {
-    //         if (result.msg === "SUCCESS") {
-    //           //console.log("Esta pasando por aqui");
-    //           localStorage.setItem('username', JSON.stringify(result.username));
-    //           sessionStorage.setItem("tokens", JSON.stringify(result.access_token));
-    //           sessionStorage.setItem("user", JSON.stringify(result.username));
-    //           sessionStorage.setItem("compania", JSON.stringify(result.compania));
-    //           // compania = compania.replace(/"/g, "");
-    //           sessionStorage.setItem("bodega", JSON.stringify(result.bodega));
-    //           //PRIVILEGIOS (MODULOS)
-    //           sessionStorage.setItem("_priv", JSON.stringify(result.priv));         
+    }else {
+      //DATA INFORMATION(USER AND PASS)
+      const data = { username: usuario, password: pass };
+      //console.log(data);
+      fetch(env.API_URL + "index.php/auth/login", {
+        //TRAE MODULOS PARA EL USUARIO
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        //mode: "cors",  // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        //credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          //  "Access-Control-Allow-Origin": "*",
+        },body: JSON.stringify(data),})
+            .then((response) => response.json())
+            .then((result) => {
+            if (result.msg === "SUCCESS") {
+              //console.log("Esta pasando por aqui");
+              localStorage.setItem('username', JSON.stringify(result.username));
+              sessionStorage.setItem("tokens", JSON.stringify(result.access_token));
+              sessionStorage.setItem("user", JSON.stringify(result.username));
+              sessionStorage.setItem("compania", JSON.stringify(result.compania));
+              // compania = compania.replace(/"/g, "");
+              sessionStorage.setItem("bodega", JSON.stringify(result.bodega));
+              //PRIVILEGIOS (MODULOS)
+              sessionStorage.setItem("_priv", JSON.stringify(result.priv));         
   
-    //           //DECLARACION DEL TOAST INICIO DE SESION
-    //           const Toast = Swal.mixin({
-    //             toast: true,
-    //             position: "top-end",
-    //             showConfirmButton: false,
-    //             timer: 2000,
-    //             timerProgressBar: true,
-    //             onOpen: (toast) => {
-    //               toast.addEventListener("mouseenter", Swal.stopTimer);
-    //               toast.addEventListener("mouseleave", Swal.resumeTimer);
-    //             },
-    //           });
+              //DECLARACION DEL TOAST INICIO DE SESION
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                  toast.addEventListener("mouseenter", Swal.stopTimer);
+                  toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+              });
   
-    //           Toast.fire({
-    //             icon: "success",
-    //             title: "Iniciando Bremen.security configuración",
-    //           }).then(function () {
-    //             // getDataDash();
-    //             window.location = "home.html";
-    //           });
+              Toast.fire({
+                icon: "success",
+                title: "Iniciando Bremen.security configuración",
+              }).then(function () {
+                // getDataDash();
+                window.location = "home.html";
+              });
   
-    //           //alert("You are logged in");
-    //           //this.goToMain();
-    //         } else {
-    //         Swal.fire({
-    //           icon: "error",
-    //           title: "Usuario o contraseña inválida",
-    //           text: "Por favor comuníquese con nuestro equipo de soporte.",
-    //           confirmButtonColor: "#28a745",
-    //         });
-    //         document.querySelector("#username").va("");
-    //         document.querySelector("#password").val("");
-    //       }
-    //     });
-    // }
+              //alert("You are logged in");
+              //this.goToMain();
+            } else {
+            Swal.fire({
+              icon: "error",
+              title: "Usuario o contraseña inválida",
+              text: "Por favor comuníquese con nuestro equipo de soporte.",
+              confirmButtonColor: "#28a745",
+            });
+            document.querySelector("#username").va("");
+            document.querySelector("#password").val("");
+          }
+        });
+    }
   }

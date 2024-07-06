@@ -20,31 +20,33 @@ class ConexionModel {
     }
 
    // Función para insertar un nuevo usuario
-public function insertarUsuario($nombre, $apellido, $usuario, $email, $contraseña, $fechaCreacion) {
-    try {
-        // Escapar caracteres especiales para evitar inyección de SQL
-        $nombre = $this->conn->real_escape_string($nombre);
-        $apellido = $this->conn->real_escape_string($apellido);
-        $usuario = $this->conn->real_escape_string($usuario);
-        $email = $this->conn->real_escape_string($email);
-        $contraseña = $this->conn->real_escape_string($contraseña);
-        $fechaCreacion = $this->conn->real_escape_string($fechaCreacion);
+    public function insertarUsuario($nombre, $apellido, $usuario, $email, $contraseña, $fechaCreacion) {
+        try {
+            // Escapar caracteres especiales para evitar inyección de SQL
+            $nombre = $this->conn->real_escape_string($nombre);
+            $apellido = $this->conn->real_escape_string($apellido);
+            $usuario = $this->conn->real_escape_string($usuario);
+            $email = $this->conn->real_escape_string($email);
+            $contraseña = $this->conn->real_escape_string($contraseña);
+            $fechaCreacion = $this->conn->real_escape_string($fechaCreacion);
 
-        // Construir la consulta SQL para insertar un nuevo usuario
-        $sql = "INSERT INTO usuarios (nombre, apellido, usuario, email, password, fechaCreacion) VALUES ('$nombre', '$apellido', '$usuario', '$email', '$contraseña', '$fechaCreacion')";
+            // Construir la consulta SQL para insertar un nuevo usuario
+            $sql = "INSERT INTO usuarios (nombre, apellido, usuario, email, password, fechaCreacion) VALUES ('$nombre', '$apellido', '$usuario', '$email', '$contraseña', '$fechaCreacion')";
 
-        // Ejecutar la consulta
-        if ($this->conn->query($sql) === TRUE) {
-            return true; // Éxito
-        } else {
-            return false; // Error
+            // Ejecutar la consulta
+            if ($this->conn->query($sql) === TRUE) {
+                return true; // Éxito
+            } else {
+                return false; // Error
+            }
+        } catch (Exception $e) {
+            // Capturar cualquier excepción y devolver una respuesta de error JSON
+            return array('error' => 'Error al insertar usuario: ' . $e->getMessage());
         }
-    } catch (Exception $e) {
-        // Capturar cualquier excepción y devolver una respuesta de error JSON
-        return array('error' => 'Error al insertar usuario: ' . $e->getMessage());
-    }
-}   
-}
+    }   
+}///fin de la clase ConexionModel
+
+
 // Incluye la definición de la clase ConexionModel
 require_once("ConexionModel.php");
 // Verificar si se recibieron datos POST
